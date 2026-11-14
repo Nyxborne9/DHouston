@@ -17,3 +17,12 @@ NASA Space Apps kuralları, kullanılan tüm kaynakların (açık kaynak olanlar
 ## Araçlar
 
 - Godot Engine 4.3 (MIT lisansı)
+
+## Veri kaynakları (oyunda kullanılanlar)
+| Bilgi | Kaynak |
+|---|---|
+| Opportunity güç düşüşü 700 → 123 Wh (2018 toz fırtınası) | NASA/JPL |
+| Radyasyon ~0.64 mSv/gün | Curiosity RAD, Hassler vd., Science 2014 |
+| Sıcaklık -89 ile -31 °C, sol = 24.6 saat | NASA Mars Fact Sheet |
+| Mars–Dünya sinyal gecikmesi 3–22 dk | NASA Mars Exploration Program |
+| Güneş patlaması bilgisi | NASA DONKI (TODO: 3-5 gerçek olay tarihi eklenecek) |

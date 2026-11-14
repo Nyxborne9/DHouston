@@ -1,0 +1,60 @@
+{
+  "sols": 12,
+  "ap_per_sol": 3,
+  "start": {"power": 70, "oxygen": 70, "shield": 60, "science": 0, "crew": 4},
+  "daily": {"power": -8, "oxygen": -8, "shield": -6},
+  "actions": [
+    {"id": "oxygen", "label": "Make Oxygen", "desc": "Oxygen +20, Power -10", "effects": {"oxygen": 20, "power": -10}},
+    {"id": "shield", "label": "Strengthen Shield", "desc": "Shield +20, Power -10", "effects": {"shield": 20, "power": -10}},
+    {"id": "panels", "label": "Clean Solar Panels (EVA)", "desc": "Power +20, Shield -8", "effects": {"power": 20, "shield": -8}},
+    {"id": "science", "label": "Do Science", "desc": "Science +10, Power -10, Oxygen -5", "effects": {"science": 10, "power": -10, "oxygen": -5}},
+    {"id": "earth", "label": "Message Earth", "desc": "Power -5. Earth replies next sol: +5 to your lowest resource", "effects": {"power": -5}, "earth_reply": true}
+  ],
+  "events": {
+    "calm": {
+      "title": "A calm sol",
+      "text": "Nothing unusual today. The panels soak up a little extra sunlight.",
+      "effects": {"power": 5},
+      "fact": "A sol (a Mars day) lasts about 24.6 hours, a little longer than an Earth day.",
+      "source": "NASA Mars Fact Sheet"
+    },
+    "dust_storm": {
+      "title": "Dust storm!",
+      "text": "Dust covers the sky and blocks the sunlight. Power drops.",
+      "effects": {"power": -25},
+      "fact": "In the 2018 dust storm, the Opportunity rover's solar power fell from about 700 to 123 watt-hours in one sol.",
+      "source": "NASA/JPL, Opportunity rover, 2018"
+    },
+    "solar_flare": {
+      "title": "Solar flare warning",
+      "text": "The Sun threw out a burst of radiation. A strong shield protects the crew (damage is halved if Shield is 50 or more).",
+      "effects": {"shield": -20},
+      "mitigation": {"resource": "shield", "threshold": 50, "factor": 0.5},
+      "fact": "NASA's DONKI database records solar flares and coronal mass ejections so teams can warn crews.",
+      "source": "NASA DONKI (kauai.ccmc.gsfc.nasa.gov/DONKI)"
+    },
+    "cold_night": {
+      "title": "Freezing night",
+      "text": "The heaters work extra hard tonight.",
+      "effects": {"power": -15},
+      "fact": "Mars temperatures can swing from about -89 C to -31 C.",
+      "source": "NASA Mars Fact Sheet"
+    },
+    "earth_contact": {
+      "title": "Call from Earth",
+      "text": "Mission control sends encouragement and a small supply boost.",
+      "effects": {"oxygen": 5, "power": 5},
+      "fact": "A radio message takes 3 to 22 minutes to travel one way between Mars and Earth.",
+      "source": "NASA Mars Exploration Program"
+    },
+    "radiation_day": {
+      "title": "Radiation check",
+      "text": "Sensors show the usual background radiation. Keep the shield up.",
+      "effects": {"shield": -5},
+      "fact": "Curiosity measured about 0.64 millisieverts of radiation per day on the Mars surface.",
+      "source": "Curiosity RAD instrument, Hassler et al., Science 2014"
+    }
+  },
+  "fixed_schedule": {"1": "calm", "3": "dust_storm", "5": "earth_contact", "6": "solar_flare", "8": "radiation_day", "9": "cold_night", "11": "solar_flare"},
+  "random_pool": ["calm", "dust_storm", "solar_flare", "cold_night", "earth_contact", "radiation_day"]
+}
