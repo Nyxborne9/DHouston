@@ -1,0 +1,4 @@
+# Godot 4 cache and local builds
+.godot/
+build/
+*.tmp
